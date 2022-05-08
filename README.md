@@ -2,14 +2,14 @@
 
 A simple application for keeping tabs on new and completed tasks
 
-# Language
+### Language
 
 Python (fastAPI)
 
-# ORM
+### ORM
 
 Tortoise
 
-# Database
+### Database
 
 Postgres
