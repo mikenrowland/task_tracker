@@ -10,7 +10,8 @@ logger = logging.getLogger(__name__)
 
 config = Config(".env")
 
-MODELS = ["models", "aerich.models"]
+
+MODELS = ["models.base", "models.register", "models.task", "aerich.models"]
 
 POSTGRES_USER = config("POSTGRES_USER", cast=Secret)
 POSTGRES_PASSWORD = config("POSTGRES_PASSWORD", cast=Secret)

@@ -1,14 +1,16 @@
 from typing import List
 from fastapi import Body, FastAPI
-from database import app_start_up_handler
-from models import Task
-from schemas import TasksSchema, NewTaskSchema, TaskCompleteSchema  
+from database.config import app_start_up_handler
+from models.task import Task
+from schemas.taskSchema import TasksSchema, NewTaskSchema, TaskCompleteSchema  
+from authentication.auth import router
 
 def get_application():
 
     app = FastAPI()
 
     app.add_event_handler("startup", app_start_up_handler(app))
+    app.include_router(router)
 
     return app
 
@@ -50,4 +52,3 @@ async def updateTask(title: str = Body(..., embed=True)):
     task.completed = True
     await task.save()
     return task
-    
